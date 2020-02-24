@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">BBN Knight</string>
+    <string name="open"> Open </string>
+    <string name="close"> Close </string>
+    <string-array name="classBlocks">
+        <item>A Block</item>
+        <item>B Block</item>
+        <item>C Block</item>
+        <item>D Block</item>
+        <item>E Block</item>
+        <item>F Block</item>
+        <item>G Block</item>
+    </string-array>
+    <string-array name="lunchTime">
+        <item>1st Lunch</item>
+        <item>2nd Lunch</item>
+    </string-array>
+    <string-array name="blockNotificationTimes">
+        <item>None</item>
+        <item>Before Block</item>
+        <item>End of Block</item>
+    </string-array>
+</resources>

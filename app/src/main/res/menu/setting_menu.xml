@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Set Class" android:id="@+id/setClass"></item>
+    <item android:title="Set Block" android:id="@+id/setBlock"></item>
+    <item android:title="Set Lunch" android:id="@+id/setLunch"></item>
+    <item android:title="Profile" android:id="@+id/profile"></item>
+    <item android:title="Credit" android:id="@+id/credit"></item>
+</menu>

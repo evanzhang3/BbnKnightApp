@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Today"
+        android:icon="@drawable/ic_today_black_24dp"
+        android:title="Today">
+    </item>
+
+    <item android:id="@+id/Upcoming"
+        android:icon="@drawable/ic_upcoming_black_24dp"
+        android:title="Upcoming">
+    </item>
+
+    <item android:id="@+id/log"
+        android:icon="@drawable/ic_logout_black_24dp"
+        android:title="Logout">
+    </item>
+
+</menu>

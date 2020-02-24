@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FutureDayActivity">
+
+    <TextView
+        android:id="@+id/dateOfWeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FDA544"
+        android:text="Monday"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="#002EA6"
+        android:textAlignment="center"
+        android:padding="8dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#002EA6"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:text="31"
+        android:textColor="#FDA544"
+        android:padding="0dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/monthYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#002EA6"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:text="JAN,  2020"
+        android:textStyle="bold"
+        android:textColor="#FDA544"
+        android:paddingBottom="10dp">
+    </TextView>
+
+    <ListView
+        android:id="@+id/blockListview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>
