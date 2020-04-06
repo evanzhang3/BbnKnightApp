@@ -16,12 +16,25 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -31,11 +44,38 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private BlockNotification mBlockNotification;
+    private RequestQueue mQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.i("Evan", "OnCreate");
+        mQueue = Volley.newRequestQueue(this);
+        //jsonParse();
+        // BlocksInWeek.getDayBlocksFromApiServer(LocalDate.of(2020, 2, 11), this,
+        //         new BlocksInWeek.ApiServerCallback() {
+        //             @Override
+        //             public void onSuccess(ArrayList<BlocksInWeek.BlockItem> blocks) {
+        //                 Log.i("Evan", "I waited until result is back!!!!!!!!!!!!!!!!!!!!!!!!");
+        //                 for (int i=0; i< blocks.size(); i++) {
+        //                     if (blocks.get(i).type == BlocksInWeek.Block_Type.WITH_LUNCH ||
+        //                             blocks.get(i).type == BlocksInWeek.Block_Type.LUNCH) {
+        //                          Log.i("Evan", "Block_name: " + blocks.get(i).name + "...type: " +
+        //                                 BlocksInWeek.blockTypeToString(blocks.get(i).type) + "...startTime: " +
+        //                                 blocks.get(i).start_time + "...endTime: " +
+        //                                 blocks.get(i).end_time + "...alt_start_time: " + blocks.get(i).alt_start_time +
+        //                                  "...alt_end_time: " + blocks.get(i).alt_end_time);
+        //                     } else
+        //                         Log.i("Evan", "Block_name: " + blocks.get(i).name + "...type: " +
+        //                             BlocksInWeek.blockTypeToString(blocks.get(i).type) + "...startTime: " +
+        //                             blocks.get(i).start_time + "...endTime: " +
+        //                             blocks.get(i).end_time);
+        //                 }
+        //             }
+
+        //         });
+        Log.i("Evan", "OnCreate 2");
 
         mDrawerLayout = findViewById(R.id.drawer);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
@@ -95,7 +135,6 @@ public class MainActivity extends AppCompatActivity
             navigationView.setCheckedItem(R.id.Today);
         }
     }
-
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -170,4 +209,44 @@ public class MainActivity extends AppCompatActivity
         return super.onCreateOptionsMenu(menu);
     }
 
+    private void jsonParse() {
+        Log.i("Evan", "jsonParse()");
+        String url = "https://api.bbnknightlife.com/m/schedule/2020/2/12/";
+        //String url = "https://api.myjson.com/bins/kp9wz";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i("Evan", "jsonParse() -1 ");
+                        try {
+                            Log.i("Evan", "jsonParse() -2");
+                            JSONArray timetables = response.getJSONArray("timetables");
+                            for(int i = 0; i < timetables.length(); i++) {
+                                Log.i("Evan", "jsonParse() - 3");
+                                JSONObject timeTable = timetables.getJSONObject(i);
+                                JSONArray blocks = timeTable.getJSONArray("blocks");
+
+                                for (int j=0; j < blocks.length(); j++ ) {
+                                    JSONObject block = blocks.getJSONObject(j);
+                                    String id = block.getString("id");
+                                    Log.i("Evan", "block  id : " + id);
+
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            Log.i("Evan", "jsonParse() -5: " + e.toString());
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("Evan", "Json response error: " + error.toString());
+                error.printStackTrace();
+            }
+        });
+        Log.i("Evan", "jsonParse() -6");
+        mQueue.add(request);
+    }
 }

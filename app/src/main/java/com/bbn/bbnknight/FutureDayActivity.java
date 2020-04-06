@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -51,7 +54,7 @@ public class FutureDayActivity extends AppCompatActivity {
             BlocksInWeek.BlockItem block = mSelectDayBlocks.get(position);
             String blockName = block.name;
             BlocksInWeek.Block_Type type = block.type;
-            String className = "No Class";
+            String className = "";
             int color = 0;
             String location = "N/A";
             boolean first_lunch = !configureLunchBlockActivity.mLunchBlocks[mDayOfWeek - 2];
@@ -121,6 +124,13 @@ public class FutureDayActivity extends AppCompatActivity {
         mMonth = getIntent().getIntExtra("month", -1);
         mYear = getIntent().getIntExtra("year", -1);
         mDayOfWeek = getIntent().getIntExtra("dayOfWeek", -1);
+        Parcelable parcelable = getIntent().getParcelableExtra("blocks");
+        ArrayList<BlocksInWeek.BlockItem> blocks = Parcels.unwrap(parcelable);
+        if (blocks.size() == 0 ) {
+            Log.e("EVan", "Empty block is passed!!!");
+            return;
+        }
+
         mListView = findViewById(R.id.blockListview);
         TextView dateOfWeekTv = findViewById(R.id.dateOfWeek);
         TextView dayTv = findViewById(R.id.day);
@@ -132,19 +142,7 @@ public class FutureDayActivity extends AppCompatActivity {
         dayTv.setText(Integer.toString(mDay));
         monthYearTv.setText(month_str[mMonth] + ",  " + Integer.toString(mYear));
 
-        if (mDayOfWeek != -1 && mDayOfWeek >= 2 && mDayOfWeek <= 6) {
-            // dayofWeek: Sun:1, Mon:2, Tue:3, W:4, Th:5, F:6, Sat:7
-            mSelectDayBlocks = BlocksInWeek.weekBlock.get(mDayOfWeek - 2);
-
-            if (mSelectDayBlocks == null) {
-                Log.i("Evan", "Get Null mBlock");
-                return;
-            };
-        } else {
-            Toast.makeText(FutureDayActivity.this, "Invalid day of week:" + mDayOfWeek,
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
+        mSelectDayBlocks = blocks;
 
         mBlockListAdaptor = new BlockListAdaptor(FutureDayActivity.this,
                 android.R.layout.simple_list_item_1, mSelectDayBlocks);
