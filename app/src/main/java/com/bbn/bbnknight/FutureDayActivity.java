@@ -64,6 +64,8 @@ public class FutureDayActivity extends AppCompatActivity {
 
             // find block's corresponding class
             // static public ArrayList<ClassItem> mClasses = new ArrayList<>();
+            String blockNameStr = block.name;
+            String blockNameLabStr = block.name + " Lab";
             boolean classFound = false;
             for (SetClassActivity.ClassItem classItem : SetClassActivity.mClasses) {
               if (classItem.block.equals(blockName)) {
@@ -77,7 +79,10 @@ public class FutureDayActivity extends AppCompatActivity {
 
             classNameTv.setText(className);
             timeTv.setText(block.start_time + " -> " + block.end_time);
-            blockNameTv.setText(block.name);
+            blockNameTv.setText(blockNameStr);
+            if(block.type == BlocksInWeek.Block_Type.LAB_CONF) {
+                blockNameTv.setText(blockNameLabStr);
+            }
             roomTv.setText(location);
 
             if (classFound) {

@@ -118,6 +118,7 @@ public class TodayFragment extends Fragment {
 
             BlocksInWeek.BlockItem block = mViewInfo.remainingDayBlocks.get(position);
             String blockNameStr = block.name;
+            String blockNameLabStr = block.name + " Lab";
             BlocksInWeek.Block_Type type = block.type;
             String className = "";
             int color = 0;
@@ -150,6 +151,9 @@ public class TodayFragment extends Fragment {
             classNameTv.setText(className);
             timeTv.setText(block.start_time + " -> " + block.end_time);
             blockNameTv.setText(blockNameStr);
+            if(block.type == BlocksInWeek.Block_Type.LAB_CONF) {
+              blockNameTv.setText(blockNameLabStr);
+            }
             roomTv.setText(location);
 
             if (classFound) {
