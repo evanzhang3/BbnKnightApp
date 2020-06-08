@@ -170,10 +170,8 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "lunch setting selected", Toast.LENGTH_LONG).show();
                 break;
             case R.id.profile:
+                //possible integration in the future
                 Toast.makeText(getApplicationContext(), "profile selected", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.credit:
-                Toast.makeText(getApplicationContext(), "credit setting selected", Toast.LENGTH_LONG).show();
                 break;
             default:
                 Toast.makeText(getApplicationContext(), "unknown item selected", Toast.LENGTH_LONG).show();
@@ -192,9 +190,11 @@ public class MainActivity extends AppCompatActivity
         } if (id == R.id.Upcoming) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new UpcomingFragment()).commit();
-        } if (id == R.id.log) {
-            Toast.makeText(MainActivity.this, "Logout is clicked", Toast.LENGTH_LONG).show();
         }
+        //possible logout fuction for the future
+//        } if (id == R.id.log) {
+//            Toast.makeText(MainActivity.this, "Logout is clicked", Toast.LENGTH_LONG).show();
+//        }
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

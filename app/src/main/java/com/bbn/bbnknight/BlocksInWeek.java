@@ -287,7 +287,7 @@ public class BlocksInWeek {
         weekBlock.add(dayBlock);
 
 
-        // Fridday
+        // Friday
         dayBlock = new ArrayList<BlockItem>();
         blockItem = new BlockItem(ADVISORY_BLOCK, Block_Type.ADVISORY, "8:00AM", "8:15AM");
         dayBlock.add(blockItem);

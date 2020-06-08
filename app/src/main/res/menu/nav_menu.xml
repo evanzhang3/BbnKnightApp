@@ -9,10 +9,11 @@
         android:icon="@drawable/ic_upcoming_black_24dp"
         android:title="Upcoming">
     </item>
+<!--    possible logout function for future -->
 
-    <item android:id="@+id/log"
-        android:icon="@drawable/ic_logout_black_24dp"
-        android:title="Logout">
-    </item>
+<!--    <item android:id="@+id/log"-->
+<!--        android:icon="@drawable/ic_logout_black_24dp"-->
+<!--        android:title="Logout">-->
+<!--    </item>-->
 
 </menu>
