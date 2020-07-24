@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bbn.bbnknight">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".BbnNotificationChannel"
         android:allowBackup="true"
@@ -10,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CreditActivity"></activity>
         <activity android:name=".NotificaitonConfigureActivity" />
         <activity android:name=".ConfigureSpecialBlockActivity" />
         <activity android:name=".configureLunchBlockActivity" />

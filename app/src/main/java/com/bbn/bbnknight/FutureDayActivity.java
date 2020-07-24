@@ -78,6 +78,10 @@ public class FutureDayActivity extends AppCompatActivity {
             classNameTv.setText(className);
             timeTv.setText(block.start_time + " -> " + block.end_time);
             blockNameTv.setText(block.name);
+            if (block.type == BlocksInWeek.Block_Type.LAB_CONF) {
+                blockNameTv.setText(block.name + " Lab");
+            }
+
             roomTv.setText(location);
 
             if (classFound) {

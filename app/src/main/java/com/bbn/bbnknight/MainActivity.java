@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity
         //Switch(item.getItemId()) {
         switch (item.getItemId()) {
             case R.id.setBlock:
-                Toast.makeText(getApplicationContext(), "block setting selected", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "block setting selected", Toast.LENGTH_LONG).show();
                 Intent blockIntent = new Intent(getApplicationContext(),ConfigureSpecialBlockActivity.class);
                 startActivity(blockIntent);
                 break;
@@ -163,17 +163,14 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 break;
             case R.id.setLunch:
-                Toast.makeText(getApplicationContext(), "class setting selected", Toast.LENGTH_LONG).show();
-
                 Intent Lunchintent = new Intent(getApplicationContext(), configureLunchBlockActivity.class);
                 startActivity(Lunchintent);
-                Toast.makeText(getApplicationContext(), "lunch setting selected", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.profile:
-                Toast.makeText(getApplicationContext(), "profile selected", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "lunch setting selected", Toast.LENGTH_LONG).show();
                 break;
             case R.id.credit:
-                Toast.makeText(getApplicationContext(), "credit setting selected", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "credit setting selected", Toast.LENGTH_LONG).show();
+                Intent creditIntent = new Intent(getApplicationContext(), CreditActivity.class);
+                startActivity(creditIntent);
                 break;
             default:
                 Toast.makeText(getApplicationContext(), "unknown item selected", Toast.LENGTH_LONG).show();
