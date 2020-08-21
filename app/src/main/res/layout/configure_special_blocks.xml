@@ -19,6 +19,7 @@
             android:clickable="true"
             android:onClick="onClick"
             android:text="X Block"
+            android:textColor="@color/text_color"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +39,7 @@
             android:clickable="true"
             android:onClick="onClick"
             android:text="Lunch"
+            android:textColor="@color/text_color"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,6 +59,7 @@
             android:clickable="true"
             android:onClick="onClick"
             android:text="Activities"
+            android:textColor="@color/text_color"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -75,6 +78,7 @@
             android:clickable="true"
             android:onClick="onClick"
             android:text="Advisory"
+            android:textColor="@color/text_color"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +96,8 @@
             android:layout_marginStart="16dp"
             android:clickable="true"
             android:onClick="onClick"
-            android:text="ClassMeeting"
+            android:text="Class Meeting"
+            android:textColor="@color/text_color"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -112,6 +117,7 @@
             android:clickable="true"
             android:onClick="onClick"
             android:text="Assembly"
+            android:textColor="@color/text_color"
             android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
