@@ -10,7 +10,8 @@ public class BlockNotification {
     private static final int number_of_special_blocks = 6;
     // 10 regular blocks: "A Block", "B Block", "C Block", "D Block", "E Block", "F Block",
     // "G Block"
-    private static final int number_of_regular_blocks = 7;
+    //private static final int number_of_regular_blocks = 7;
+    private static final int number_of_regular_blocks = 12; // added block1 to block5
 
     public static final int total_blocks = number_of_regular_blocks  +   number_of_special_blocks;
 
@@ -48,6 +49,11 @@ public class BlockNotification {
         mBlockNotifications[10].name = BlocksInWeek.E_BLOCK;
         mBlockNotifications[11].name = BlocksInWeek.F_BLOCK;
         mBlockNotifications[12].name = BlocksInWeek.G_BLOCK;
+        mBlockNotifications[13].name = BlocksInWeek.BLOCK1;
+        mBlockNotifications[14].name = BlocksInWeek.BLOCK2;
+        mBlockNotifications[15].name = BlocksInWeek.BLOCK3;
+        mBlockNotifications[16].name = BlocksInWeek.BLOCK4;
+        mBlockNotifications[17].name = BlocksInWeek.BLOCK5;
     }
 
     public static BlockNotification getInstance() {
@@ -62,6 +68,7 @@ public class BlockNotification {
     }
 
     public boolean isBeforeStartNotificationSet(String blockName) {
+        Log.i("Evan", "test1 to be removed: blockName: " + blockName);
         return getSingleBlock(blockName).before_start_notification;
     }
 
@@ -78,6 +85,7 @@ public class BlockNotification {
     }
 
     public SingleBlockNotification getSingleBlock(String blockName) {
+        Log.i("Evan", "test2 to be removed: blockName: " + blockName);
         switch (blockName) {
             case BlocksInWeek.X_BLOCK:
                 return mBlockNotifications[0];
@@ -105,8 +113,19 @@ public class BlockNotification {
                 return mBlockNotifications[11];
             case BlocksInWeek.G_BLOCK:
                 return mBlockNotifications[12];
+            case BlocksInWeek.BLOCK1:
+                return mBlockNotifications[13];
+            case BlocksInWeek.BLOCK2:
+                return mBlockNotifications[14];
+            case BlocksInWeek.BLOCK3:
+                return mBlockNotifications[15];
+            case BlocksInWeek.BLOCK4:
+                return mBlockNotifications[16];
+            case BlocksInWeek.BLOCK5:
+                return mBlockNotifications[17];
 
             default:
+                Log.i("Evan", "test3 to be removed: blockName: " + blockName);
                 return null;
         }
     }

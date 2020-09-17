@@ -40,6 +40,12 @@ public class BlocksInWeek {
     public static final String F_BLOCK  = "F Block";
     public static final String G_BLOCK  = "G Block";
     public static final String X_BLOCK  = "X Block";
+    public static final String BLOCK1  = "block1";
+    public static final String BLOCK2  = "block2";
+    public static final String BLOCK3  = "block3";
+    public static final String BLOCK4  = "block4";
+    public static final String BLOCK5  = "block5";
+
 
     public static final String ASSEMBLY_BLOCK  = "Assembly";
     public static final String LUNCH_BLOCK  = "Lunch";
@@ -476,6 +482,11 @@ public class BlocksInWeek {
             case "f":
             case "g":
             case "x":
+            case "block1":
+            case "block2":
+            case "block3":
+            case "block4":
+            case "block5":
                 return Block_Type.REGULAR;
             case "assembly":
                 return Block_Type.ASSEMBLY;
@@ -528,6 +539,12 @@ public class BlocksInWeek {
                 return LUNCH_BLOCK;
             case "activities":
                 return ACTIVITIES_BLOCK;
+            case "block1":
+            case "block2":
+            case "block3":
+            case "block4":
+            case "block5":
+                return blockId;
         }
         return  "";
     }
